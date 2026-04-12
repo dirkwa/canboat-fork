@@ -1641,6 +1641,13 @@ Pgn pgnList[] = {
      {COMPANY(137), BINARY_FIELD("Data", BYTES(6), ""), END_OF_FIELDS}}
 
     ,
+    {"BEP Marine: Proprietary PGN 65281",
+     65281,
+     PACKET_INCOMPLETE,
+     PACKET_SINGLE,
+     {COMPANY(295), BINARY_FIELD("Data", BYTES(6), ""), END_OF_FIELDS}}
+
+    ,
     {"Maretron: Number of Channels",
      65282,
      PACKET_COMPLETE,
@@ -1652,6 +1659,13 @@ Pgn pgnList[] = {
       END_OF_FIELDS},
      .priority = 6}
 
+
+    ,
+    {"BEP Marine: Proprietary PGN 65283",
+     65283,
+     PACKET_INCOMPLETE,
+     PACKET_SINGLE,
+     {COMPANY(295), BINARY_FIELD("Data", BYTES(6), ""), END_OF_FIELDS}}
     ,
     {"Maretron: Proprietary DC Breaker Current",
      65284,
@@ -1872,6 +1886,55 @@ Pgn pgnList[] = {
      {COMPANY(641), INSTANCE_FIELD, RESERVED_FIELD(BYTES(1)), UINT32_FIELD("Load Cell"), END_OF_FIELDS},
      .priority = 2}
 
+
+    ,
+    {"BEP Marine: Proprietary PGN 65294",
+     65294,
+     PACKET_INCOMPLETE,
+     PACKET_SINGLE,
+     {COMPANY(295), BINARY_FIELD("Data", BYTES(6), ""), END_OF_FIELDS}}
+
+    ,
+    {"BEP Marine: Proprietary PGN 65295",
+     65295,
+     PACKET_INCOMPLETE,
+     PACKET_SINGLE,
+     {COMPANY(295), BINARY_FIELD("Data", BYTES(6), ""), END_OF_FIELDS}}
+
+    ,
+    {"BEP Marine: Proprietary PGN 65296",
+     65296,
+     PACKET_INCOMPLETE,
+     PACKET_SINGLE,
+     {COMPANY(295), BINARY_FIELD("Data", BYTES(6), ""), END_OF_FIELDS}}
+
+    ,
+    {"BEP Marine: Proprietary PGN 65297",
+     65297,
+     PACKET_INCOMPLETE,
+     PACKET_SINGLE,
+     {COMPANY(295), BINARY_FIELD("Data", BYTES(6), ""), END_OF_FIELDS}}
+
+    ,
+    {"BEP Marine: Proprietary PGN 65299",
+     65299,
+     PACKET_INCOMPLETE,
+     PACKET_SINGLE,
+     {COMPANY(295), BINARY_FIELD("Data", BYTES(6), ""), END_OF_FIELDS}}
+
+    ,
+    {"BEP Marine: Proprietary PGN 65300",
+     65300,
+     PACKET_INCOMPLETE,
+     PACKET_SINGLE,
+     {COMPANY(295), BINARY_FIELD("Data", BYTES(6), ""), END_OF_FIELDS}}
+
+    ,
+    {"BEP Marine: Proprietary PGN 65301",
+     65301,
+     PACKET_INCOMPLETE,
+     PACKET_SINGLE,
+     {COMPANY(295), BINARY_FIELD("Data", BYTES(6), ""), END_OF_FIELDS}}
     ,
     {"Simnet: AP Unknown 1",
      65302,
@@ -1888,6 +1951,13 @@ Pgn pgnList[] = {
      .explanation = "Seen as sent by AC-42 only so far.",
      .priority    = 7}
 
+
+    ,
+    {"BEP Marine: Proprietary PGN 65304",
+     65304,
+     PACKET_INCOMPLETE,
+     PACKET_SINGLE,
+     {COMPANY(295), BINARY_FIELD("Data", BYTES(6), ""), END_OF_FIELDS}}
     ,
     {"Simnet: Device Status",
      65305,
@@ -1959,6 +2029,20 @@ Pgn pgnList[] = {
      .interval    = 1000,
      .explanation = "This PGN has been seen to be reported by a Sailing Processor."}
 
+
+    ,
+    {"BEP Marine: Proprietary PGN 65306",
+     65306,
+     PACKET_INCOMPLETE,
+     PACKET_SINGLE,
+     {COMPANY(295), BINARY_FIELD("Data", BYTES(6), ""), END_OF_FIELDS}}
+
+    ,
+    {"BEP Marine: Proprietary PGN 65308",
+     65308,
+     PACKET_INCOMPLETE,
+     PACKET_SINGLE,
+     {COMPANY(295), BINARY_FIELD("Data", BYTES(6), ""), END_OF_FIELDS}}
     ,
     {"Navico: Wireless Battery Status",
      65309,
@@ -1972,6 +2056,20 @@ Pgn pgnList[] = {
       END_OF_FIELDS},
      .priority = 7}
 
+
+    ,
+    {"BEP Marine: Proprietary PGN 65310",
+     65310,
+     PACKET_INCOMPLETE,
+     PACKET_SINGLE,
+     {COMPANY(295), BINARY_FIELD("Data", BYTES(6), ""), END_OF_FIELDS}}
+
+    ,
+    {"BEP Marine: Proprietary PGN 65311",
+     65311,
+     PACKET_INCOMPLETE,
+     PACKET_SINGLE,
+     {COMPANY(295), BINARY_FIELD("Data", BYTES(6), ""), END_OF_FIELDS}}
     ,
     {"Navico: Wireless Signal Status",
      65312,
@@ -1980,6 +2078,27 @@ Pgn pgnList[] = {
      {COMPANY(275), UINT8_FIELD("Unknown"), PERCENTAGE_U8_FIELD("Signal Strength"), RESERVED_FIELD(BYTES(4)), END_OF_FIELDS},
      .priority = 7}
 
+
+    ,
+    {"BEP Marine: Proprietary PGN 65314",
+     65314,
+     PACKET_INCOMPLETE,
+     PACKET_SINGLE,
+     {COMPANY(295), BINARY_FIELD("Data", BYTES(6), ""), END_OF_FIELDS}}
+
+    ,
+    {"BEP Marine: Proprietary PGN 65316",
+     65316,
+     PACKET_INCOMPLETE,
+     PACKET_SINGLE,
+     {COMPANY(295), BINARY_FIELD("Data", BYTES(6), ""), END_OF_FIELDS}}
+
+    ,
+    {"BEP Marine: Proprietary PGN 65325",
+     65325,
+     PACKET_INCOMPLETE,
+     PACKET_SINGLE,
+     {COMPANY(295), BINARY_FIELD("Data", BYTES(6), ""), END_OF_FIELDS}}
     ,
     {"Simnet: AP Unknown 2",
      65340,
