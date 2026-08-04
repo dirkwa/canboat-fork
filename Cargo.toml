@@ -13,6 +13,7 @@ members = [
     "crates/canboat-cli",
     "crates/canboat",
     "crates/canboat-bridge",
+    "crates/canboat-wasm",
 ]
 
 [workspace.package]

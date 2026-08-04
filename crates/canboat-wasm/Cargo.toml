@@ -1,0 +1,25 @@
+[package]
+name        = "canboat-wasm"
+version     = { workspace = true }
+edition     = { workspace = true }
+license     = { workspace = true }
+authors     = { workspace = true }
+repository  = { workspace = true }
+description = "WebAssembly bindings for the canboat NMEA 2000 decoder/encoder."
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+canboat-core = { workspace = true }
+canboat      = { path = "../canboat", default-features = false, features = ["json-input"] }
+wasm-bindgen = "0.2"
+
+# Small wasm binary: the schema tables dominate size anyway, but opt-level
+# "z" + lto keeps the code section tight. Applied via the workspace's
+# release profile plus wasm-pack's own --release pass.
+
+# Recent rustc emits bulk-memory / nontrapping-fptoint by default; the
+# wasm-opt bundled with wasm-pack rejects them unless told.
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = ["-O", "--enable-bulk-memory", "--enable-nontrapping-float-to-int"]
