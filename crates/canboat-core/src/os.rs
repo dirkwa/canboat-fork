@@ -50,6 +50,14 @@ fn machine_string() -> Option<String> {
     Some(line[start..end].to_string())
 }
 
+// Targets without an OS machine identifier (wasm32, BSDs, …): no
+// fingerprint. get_machine_id() then hashes just the salt, which is
+// still stable — merely not per-machine.
+#[cfg(not(any(target_os = "linux", target_os = "macos", target_os = "windows")))]
+fn machine_string() -> Option<String> {
+    None
+}
+
 #[cfg(target_os = "windows")]
 fn machine_string() -> Option<String> {
     // Shell out to `reg query` to stay dependency-free.

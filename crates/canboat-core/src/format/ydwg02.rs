@@ -97,6 +97,7 @@ pub fn parse_line(line: &str) -> Result<RawFrame, ParseError> {
 /// environment freezes time). Mirrors canboat's `parseRawFormatYDWG02`
 /// which does `localtime_r + strftime("%Y-%m-%dT")` then appends the
 /// parsed time-of-day verbatim.
+#[cfg(not(target_arch = "wasm32"))]
 fn synth_iso_timestamp(time: &str) -> String {
     use std::time::{SystemTime, UNIX_EPOCH};
     let secs = SystemTime::now()
@@ -110,6 +111,14 @@ fn synth_iso_timestamp(time: &str) -> String {
     let days = secs.div_euclid(86_400);
     let (y, m, d) = days_to_ymd(days);
     format!("{y:04}-{m:02}-{d:02}T{time}")
+}
+
+/// wasm32-unknown-unknown has no host clock — `SystemTime::now()`
+/// PANICS there rather than erroring. Take the documented fallback:
+/// the time-of-day verbatim, no synthesized date prefix.
+#[cfg(target_arch = "wasm32")]
+fn synth_iso_timestamp(time: &str) -> String {
+    time.to_string()
 }
 
 #[cfg(test)]
