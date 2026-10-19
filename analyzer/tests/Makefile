@@ -260,7 +260,20 @@ test28:
 	diff $(TEMPDIR)/pgn-si-units.out pgn-si-units.out
 	diff $(TEMPDIR)/pgn-si-units.err pgn-si-units.err
 
-tests:	test1 test2 test3 test4 test5 test6 test7 test8 test9 test10 test11 test12 test13 test14 test15 test16 test17 test18 test19 test20 test21 test22 test23 test24 test25 test26 test27 test28
+#
+# 126208 Requests for proprietary 126720: the analyzer steps past 126720's
+# catch-all, listed first, so Airmar's requests resolve their variants and
+# parameter 4 reads as a Proprietary ID. A Raymarine request whose
+# proprietary ID no variant carries (samples/raymarine-ev1.raw) falls back to
+# the catch-all, the rest of the message as raw Data.
+#
+test29:
+	$(ANALYZER) -json -nv < pgn-126208-request-126720.in > $(TEMPDIR)/pgn-126208-request-126720.out -fixtime pgn-126208-request-126720 2> $(TEMPDIR)/pgn-126208-request-126720.err
+	python3 ../validate-json.py --line-by-line $(TEMPDIR)/pgn-126208-request-126720.out
+	diff $(TEMPDIR)/pgn-126208-request-126720.out pgn-126208-request-126720.out
+	diff $(TEMPDIR)/pgn-126208-request-126720.err pgn-126208-request-126720.err
+
+tests:	test1 test2 test3 test4 test5 test6 test7 test8 test9 test10 test11 test12 test13 test14 test15 test16 test17 test18 test19 test20 test21 test22 test23 test24 test25 test26 test27 test28 test29
 
 #
 # 8-bit string fields carry whichever encoding the sending device felt like, so
