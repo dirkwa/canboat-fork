@@ -197,6 +197,21 @@ fn run_case_skipping(in_name: &str, expected_name: &str, args: &[&str], skip_lin
     }
 }
 
+/// 126208 Requests for proprietary 126720 (test29 in
+/// analyzer/tests/Makefile): the C steps past 126720's catch-all, listed
+/// first, so Airmar's requests resolve their variants and parameter 4
+/// reads as a Proprietary ID. A Raymarine request whose proprietary ID
+/// no variant carries (samples/raymarine-ev1.raw) falls back to the
+/// catch-all, the rest of the message as raw Data.
+#[test]
+fn pgn_126208_request_126720_json() {
+    run_case(
+        "pgn-126208-request-126720.in",
+        "pgn-126208-request-126720.out",
+        &["--json", "--nv", "--fixtime", "pgn-126208-request-126720"],
+    );
+}
+
 /// `-si`: the database's kWh and Ah fields leave as J and C (test28 in
 /// analyzer/tests/Makefile) — 65005 energy, 127506 and 127513 charge.
 #[test]
